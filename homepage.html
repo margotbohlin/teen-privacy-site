@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Privacy Isn’t Private</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Your Privacy Isn’t Private</h1>
+    <nav>
+      <ul>
+        <li><a href="#what">What is Surveillance?</a></li>
+        <li><a href="#teens">Why Teens Are Targeted</a></li>
+        <li><a href="#consequences">Real Consequences</a></li>
+        <li><a href="#protect">Protect Yourself</a></li>
+        <li><a href="#news">Privacy News</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="what">
+    <h2>What is Surveillance?</h2>
+    <p>Surveillance on social media includes tracking your posts, likes, and even how long you look at something. This is often done through cookies and algorithms.</p>
+    <button onclick="revealInfo()">Click to Reveal an Example</button>
+    <div id="example" class="hidden">Example: TikTok tracks your scrolling to adjust your feed in real-time.</div>
+  </section>
+
+  <section id="teens">
+    <h2>Why Teens Are Targeted</h2>
+    <p>Teens over 13 are not protected under COPPA and are a goldmine for advertisers due to their high engagement.</p>
+    <div>
+      <label>Are you under 18? </label>
+      <input type="checkbox" id="ageCheck" onclick="showAdvice()" />
+      <p id="advice" class="hidden">Use extra caution with what you share! You're more vulnerable to targeting.</p>
+    </div>
+  </section>
+
+  <section id="consequences">
+    <h2>Real Consequences</h2>
+    <ul>
+      <li>College applications see your digital footprint.</li>
+      <li>Hackers can use shared info for doxxing.</li>
+      <li>Targeted ads can influence your mental health.</li>
+    </ul>
+  </section>
+
+  <section id="protect">
+    <h2>5 Ways to Protect Yourself</h2>
+    <ol>
+      <li>Review privacy settings on every app.</li>
+      <li>Don't share real-time location.</li>
+      <li>Think before you post.</li>
+      <li>Use encrypted messaging.</li>
+      <li>Don’t click suspicious links.</li>
+    </ol>
+  </section>
+
+  <section id="news">
+    <h2>Privacy News</h2>
+    <p>Check out <a href="https://www.privacynotincluded.org/" target="_blank">Privacy Not Included</a> for up-to-date surveillance news and product safety ratings.</p>
+  </section>
+
+  <footer>
+    <p>Created by Margot, Sanyukta, and Pascale | Ethics in Technology 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
