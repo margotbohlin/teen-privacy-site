@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Privacy Isn’t Private</title>
+  <title>Your Privacy Isn't Private</title>
   <style>
     body {
     font-family: 'Times New Roman', Times, serif;
@@ -81,6 +81,80 @@
   .tab-section.active {
     display: block;
   }
+
+  /* Quiz Styling */
+  .quiz-container {
+    max-width: 800px;
+    margin: 2em auto;
+    background-color: #f0f8ff;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .quiz-question {
+    margin-bottom: 1.5em;
+    padding: 1em;
+    background-color: white;
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  .quiz-options {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .quiz-options li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e9f5ff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .quiz-options li:hover {
+    background-color: #d0e8ff;
+  }
+
+  .quiz-options li.selected {
+    background-color: #007acc;
+    color: white;
+  }
+
+  .quiz-options li.correct {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .quiz-options li.incorrect {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .submit-quiz {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+
+  .submit-quiz:hover {
+    background-color: #005fa3;
+  }
+
+  .results-container {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #e9f5ff;
+    display: none;
+  }
   
   </style>
 </head>
@@ -103,13 +177,13 @@
 
   <section id="audience" class="tab-section">
     <h2>Who Is Our Audience?</h2>
-    <p>Teenagers today are among the most active social media users, often engaging with platforms that encourage frequent sharing of personal details. This openness is influenced not only by the features of emerging apps but also by shifting cultural norms around visibility and self-expression online. As teens adopt new technologies, they tend to share more without fully understanding the long-term implications of their digital footprints [3]. Many privacy laws don’t fully protect users over the age of 13, and because teens are so active online, advertisers and tech companies see them as prime targets. Our goal is to raise awareness, explain the risks, and share a few ways to take back control of your online privacy.</p>
+    <p>Teenagers today are among the most active social media users, often engaging with platforms that encourage frequent sharing of personal details. This openness is influenced not only by the features of emerging apps but also by shifting cultural norms around visibility and self-expression online. As teens adopt new technologies, they tend to share more without fully understanding the long-term implications of their digital footprints [3]. Many privacy laws don't fully protect users over the age of 13, and because teens are so active online, advertisers and tech companies see them as prime targets. Our goal is to raise awareness, explain the risks, and share a few ways to take back control of your online privacy.</p>
 
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>Social Media Use by Age Group</title>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     </head>
     <body>
       <h2 style="text-align:center;">Social Media Platform Usage by Age Group (2024)</h2>
@@ -184,7 +258,7 @@
       that can be used by the government, advertising agencies, market research companies and Facebook itself [1].</p>
 
       <img
-    src="https://images.axios.com/TfiTOEli_XpWHq6n5sLPgLKm__U=/2022/05/25/1653509190687.png"
+    src="/api/placeholder/200/150"
     alt="Game Ad"
     id="mainAd"
     style="cursor: pointer; width: 200px; height: auto; float: right; margin-left: 20px;"
@@ -193,17 +267,17 @@
   <!-- Popup Ads Floating Right of Screen -->
   <div id="moreAds" style="display: none; position: fixed; top: 200px; right: 20px; z-index: 1000;">
     <img
-      src="https://www.blog.udonis.co/static/7129b69c7ff7402a74fe4187e3c44b39/0ccb9/top-playable-ads.png"
+      src="/api/placeholder/200/150"
       alt="Ad 1"
       style="display: block; margin-bottom: 10px; width: 200px;"
     />
     <img
-      src="https://via.placeholder.com/250x125?text=Ad+2"
+      src="/api/placeholder/200/150"
       alt="Ad 2"
       style="display: block; margin-bottom: 10px; width: 200px;"
     />
     <img
-      src="https://via.placeholder.com/250x125?text=Ad+3"
+      src="/api/placeholder/200/150"
       alt="Ad 3"
       style="display: block; width: 200px;"
     />
@@ -219,14 +293,122 @@
     });
   </script>
 
-  <section id="profit" class="tab-section">
-    <h2>Capitalistic Gain</h2>
-    <p>Facebook is one example of a site that has been discovered to generate profit by turning user activity and personal data into advertising revenue. Companies collect vast amounts of user information, often through privacy policies that are intentionally vague or hard to understand, making it unlikely that users truly know what they’re agreeing to. This data is sold to advertisers, allowing companies to target individuals with precision. Users essentially are becoming unpaid laborers contributing to corporate profits by providing data, content, and engagement [1]. The next time you use social media to seek travel advice, pay attention to how often you encounter recommendations for travel agencies or local excursions related to the destinations you were exploring.</p>
-  </section>
+<section id="profit" class="tab-section">
+  <h2>Capitalistic Gain</h2>
+  
+  <p>Facebook is one example of a site that has been discovered to generate profit by turning user activity and personal data into advertising revenue. Companies collect vast amounts of user information, often through privacy policies that are intentionally vague or hard to understand, making it unlikely that users truly know what they're agreeing to. This data is sold to advertisers, allowing companies to target individuals with precision. Users essentially are becoming unpaid laborers contributing to corporate profits by providing data, content, and engagement [1]. The next time you use social media to seek travel advice, pay attention to how often you encounter recommendations for travel agencies or local excursions related to the destinations you were exploring.</p>
+  <title>Capitalistic Gain Matching Quiz</title>
+  
+
+
+  <h3>Capitalism and Greed - Match the Terms to Their Definitions</h3>
+
+  <form id="matchQuiz">
+    <div class="match-row">
+      <label for="term1">Facebook</label>
+      <select id="term1" name="term1">
+        <option value="">-- Select a definition --</option>
+        <option value="a">Users unknowingly provide data that is used for targeting ads</option>
+        <option value="b">A social media platform that monetizes user behavior</option>
+        <option value="c">Legal text that disguises true data usage intentions</option>
+      </select>
+    </div>
+
+    <div class="match-row">
+      <label for="term2">Privacy Policies</label>
+      <select id="term2" name="term2">
+        <option value="">-- Select a definition --</option>
+        <option value="a">Users unknowingly provide data that is used for targeting ads</option>
+        <option value="b">A social media platform that monetizes user behavior</option>
+        <option value="c">Legal text that disguises true data usage intentions</option>
+      </select>
+    </div>
+
+    <div class="match-row">
+      <label for="term3">"Unpaid Labor" in the digital world</label>
+      <select id="term3" name="term3">
+        <option value="">-- Select a definition --</option>
+        <option value="a">Users unknowingly provide data that is used for targeting ads</option>
+        <option value="b">A social media platform that monetizes user behavior</option>
+        <option value="c">Legal text that disguises true data usage intentions</option>
+      </select>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+    <div id="result"></div>
+  </form>
+
+  <script>
+    document.getElementById("matchQuiz").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const answers = {
+        term1: "b", // Facebook
+        term2: "c", // Privacy Policies
+        term3: "a"  // Unpaid Labor
+      };
+
+      const userAnswers = {
+        term1: document.getElementById("term1").value,
+        term2: document.getElementById("term2").value,
+        term3: document.getElementById("term3").value
+      };
+
+      const allCorrect = Object.keys(answers).every(key => answers[key] === userAnswers[key]);
+
+      const resultEl = document.getElementById("result");
+      if (allCorrect) {
+        resultEl.textContent = "✅ Correct! Great job.";
+        resultEl.className = "correct";
+      } else {
+        resultEl.textContent = "❌ One or more answers are incorrect. Try again!";
+        resultEl.className = "incorrect";
+      }
+    });
+  </script>
+  
+</section>
 
   <section id="harm" class="tab-section">
     <h2>Harm: Doxxing & Exploitation</h2>
     <p>Capitalistic gain is not the only thing sites such as Facebook and Instagram are looking for. Personal information shared on social media can also reveal details such as age, gender, location, photos, and interests [5]. In some online communities, individuals weaponize personal data to intimidate or silence others. This practice, known as doxxing, involves publishing private information to shame, harass, or discredit someone [6]. For teens and vulnerable users, the impact of this exposure can be severe, threatening both emotional well-being and personal safety.</p>
+    <div style="background:#fff8f0; padding: 20px; margin-top: 30px; border: 2px solid #e0b089; border-radius: 8px;">
+      <h3>Quick Check: What would you do?</h3>
+      <p>You see someone posting another user's home address on Instagram. What should you do?</p>
+    
+      <form id="safetyQuiz">
+        <label><input type="radio" name="choice" value="a"> Ignore it — it’s not my problem</label><br>
+        <label><input type="radio" name="choice" value="b"> Share it to let more people know</label><br>
+        <label><input type="radio" name="choice" value="c"> Report the post to the platform</label><br><br>
+    
+        <button type="submit">Submit Answer</button>
+        <p id="safetyFeedback" style="font-weight:bold; margin-top:10px;"></p>
+      </form>
+    </div>
+    
+    <script>
+      document.getElementById("safetyQuiz").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const choice = document.querySelector('input[name="choice"]:checked');
+        const feedback = document.getElementById("safetyFeedback");
+    
+        if (!choice) {
+          feedback.textContent = "Please select an option before submitting.";
+          feedback.style.color = "red";
+          return;
+        }
+    
+        if (choice.value === "c") {
+          feedback.textContent = "✅ Correct! Reporting doxxing helps protect others and prevent harm.";
+          feedback.style.color = "green";
+        } else {
+          feedback.textContent = "❌ Not quite. The best course of action is to report the post to the platform.";
+          feedback.style.color = "red";
+        }
+      });
+    </script>
+    
+    
   </section>
 
   <section id="solutions" class="tab-section">
@@ -239,9 +421,141 @@
         <strong>Research Guidelines:</strong> Beyond individual users, institutions also play a key role in protecting personal data. Researchers and social media legal teams must develop clear guidelines for handling networked data that contains personally identifiable information (addresses, security questions, birthdays, etc.). As more research involves social media platforms and online behaviors, it's essential to have shared ethical standards and transparent procedures for data collection, consent, and storage [4].
       </li>
       <li>
-        <strong>Ad-Blockers/Further Technology Development:</strong> Developers and engineers can help shift the balance from harm to good by creating apps and browser extensions that limit tracking or alert users when their data is being collected. One example could be a browser plugin that flags when a site is sharing your location or a “privacy score” tool that rates apps before you download them. This would be a lot easier for teens to comprehend than having to read the fine print in platform terms and conditions.
+        <strong>Ad-Blockers/Further Technology Development:</strong> Developers and engineers can help shift the balance from harm to good by creating apps and browser extensions that limit tracking or alert users when their data is being collected. One example could be a browser plugin that flags when a site is sharing your location or a "privacy score" tool that rates apps before you download them. This would be a lot easier for teens to comprehend than having to read the fine print in platform terms and conditions.
       </li>
     </ul>
+
+    <div class="quiz-container">
+      <h3>Test Your Privacy Knowledge</h3>
+      
+      <div class="quiz-question">
+        <h4>1. What is "doxxing"?</h4>
+        <ul class="quiz-options" data-question="1">
+          <li data-answer="a">A. A type of computer virus that steals your data</li>
+          <li data-answer="b" data-correct="true">B. Publishing someone's private information to shame, harass, or discredit them</li>
+          <li data-answer="c">C. A technique used by social media platforms to encrypt your personal data</li>
+          <li data-answer="d">D. The practice of using VPNs to hide your online activity</li>
+        </ul>
+      </div>
+      
+      <div class="quiz-question">
+        <h4>2. Which of these is an effective way to protect your privacy online?</h4>
+        <ul class="quiz-options" data-question="2">
+          <li data-answer="a">A. Using the same password across all platforms for consistency</li>
+          <li data-answer="b">B. Accepting all cookies to improve your browsing experience</li>
+          <li data-answer="c">C. Sharing your location data with all your apps</li>
+          <li data-answer="d" data-correct="true">D. Using browser extensions that block tracking technologies</li>
+        </ul>
+      </div>
+      
+      <div class="quiz-question">
+        <h4>3. What is data harvesting?</h4>
+        <ul class="quiz-options" data-question="3">
+          <li data-answer="a" data-correct="true">A. Large-scale collection of personal data by companies or third parties</li>
+          <li data-answer="b">B. The process of backing up your files to the cloud</li>
+          <li data-answer="c">C. A method of protecting your digital files with encryption</li>
+          <li data-answer="d">D. Software that organizes your digital photos by date</li>
+        </ul>
+      </div>
+      
+      <button class="submit-quiz">Check Answers</button>
+      
+      <div class="results-container">
+        <h4>Your Results:</h4>
+        <p class="score-display">You got <span id="score">0</span> out of 3 correct!</p>
+        <div id="feedback"></div>
+      </div>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const options = document.querySelectorAll('.quiz-options li');
+        const submitButton = document.querySelector('.submit-quiz');
+        const resultsContainer = document.querySelector('.results-container');
+        const scoreDisplay = document.getElementById('score');
+        const feedbackContainer = document.getElementById('feedback');
+        
+        // Allow selecting options
+        options.forEach(option => {
+          option.addEventListener('click', function() {
+            // Remove selected class from siblings
+            const siblings = this.parentElement.querySelectorAll('li');
+            siblings.forEach(sib => sib.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+          });
+        });
+        
+        // Check answers when submit button is clicked
+        submitButton.addEventListener('click', function() {
+          let score = 0;
+          const questionResults = {};
+          
+          // Check each question
+          document.querySelectorAll('.quiz-question').forEach(question => {
+            const questionNumber = question.querySelector('h4').textContent.split('.')[0];
+            const selectedOption = question.querySelector('.selected');
+            const correctOption = question.querySelector('[data-correct="true"]');
+            
+            // If no option selected, skip
+            if (!selectedOption) {
+              questionResults[questionNumber] = {
+                result: 'unanswered',
+                correct: correctOption.textContent
+              };
+              return;
+            }
+            
+            // Check if selected option is correct
+            if (selectedOption.dataset.correct === 'true') {
+              selectedOption.classList.add('correct');
+              score++;
+              questionResults[questionNumber] = {
+                result: 'correct',
+                selected: selectedOption.textContent
+              };
+            } else {
+              selectedOption.classList.add('incorrect');
+              correctOption.classList.add('correct');
+              questionResults[questionNumber] = {
+                result: 'incorrect',
+                selected: selectedOption.textContent,
+                correct: correctOption.textContent
+              };
+            }
+          });
+          
+          // Display score
+          scoreDisplay.textContent = score;
+          
+          // Generate feedback
+          feedbackContainer.innerHTML = '';
+          for (const [question, result] of Object.entries(questionResults)) {
+            const feedbackItem = document.createElement('p');
+            
+            if (result.result === 'unanswered') {
+              feedbackItem.innerHTML = `<strong>Question ${question}:</strong> Not answered. The correct answer is ${result.correct}`;
+            } else if (result.result === 'correct') {
+              feedbackItem.innerHTML = `<strong>Question ${question}:</strong> Correct!`;
+            } else {
+              feedbackItem.innerHTML = `<strong>Question ${question}:</strong> Incorrect. You selected "${result.selected.split('.')[1].trim()}" but the correct answer is "${result.correct.split('.')[1].trim()}"`;
+            }
+            
+            feedbackContainer.appendChild(feedbackItem);
+          }
+          
+          // Show results
+          resultsContainer.style.display = 'block';
+          
+          // Disable further changes
+          options.forEach(option => {
+            option.style.pointerEvents = 'none';
+          });
+          submitButton.disabled = true;
+        });
+      });
+    </script>
   </section>
 
   <section id="survey" class="tab-section">
