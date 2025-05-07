@@ -4,68 +4,363 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Privacy Isn’t Private</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  header {
+      background-image: url('https://www.eff.org/files/banner_library/social-media-surveillance-1b_0.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: rgb(255, 255, 255);
+      font-size: 30px;
+      padding: 6rem;
+      text-align: center;
+      text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    font-size: 25px;
+  }
+  
+  nav li {
+    margin: 0 1rem;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #eee;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  section {
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 30px;
+  }
+  
+  section p, section h2, section ul, section div {
+    text-align: center;
+  }
+  
+  .tab-section {
+    display: none;
+  }
+  
+  .tab-section.active {
+    display: block;
+  }
+  
+  </style>
 </head>
 <body>
   <header>
-    <h1>Your Privacy Isn’t Private</h1>
+    <h1>The Algorithm is Watching</h1>
     <nav>
       <ul>
-        <li><a href="#what">What is Surveillance?</a></li>
-        <li><a href="#teens">Why Teens Are Targeted</a></li>
-        <li><a href="#consequences">Real Consequences</a></li>
-        <li><a href="#protect">Protect Yourself</a></li>
-        <li><a href="#news">Privacy News</a></li>
+        <li><a href="#" data-tab="audience">Who Is Our Audience?</a></li>
+        <li><a href="#" data-tab="datause">Where is Your Data Going?</a></li>
+        <li><a href="#" data-tab="profit">Capitalistic Gain</a></li>
+        <li><a href="#" data-tab="harm">Doxxing & Exploitation</a></li>
+        <li><a href="#" data-tab="solutions">Protect Your Privacy</a></li>
+        <li><a href="#" data-tab="survey">Privacy Survey</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="what">
-    <h2>What is Surveillance?</h2>
-    <p>Surveillance on social media includes tracking your posts, likes, and even how long you look at something. This is often done through cookies and algorithms.</p>
-    <button onclick="revealInfo()">Click to Reveal an Example</button>
-    <div id="example" class="hidden">Example: TikTok tracks your scrolling to adjust your feed in real-time.</div>
+  
+
+  <section id="audience" class="tab-section">
+    <h2>Who Is Our Audience?</h2>
+    <p>Teenagers today are among the most active social media users, often engaging with platforms that encourage frequent sharing of personal details. This openness is influenced not only by the features of emerging apps but also by shifting cultural norms around visibility and self-expression online. As teens adopt new technologies, they tend to share more without fully understanding the long-term implications of their digital footprints [3]. Many privacy laws don’t fully protect users over the age of 13, and because teens are so active online, advertisers and tech companies see them as prime targets. Our goal is to raise awareness, explain the risks, and share a few ways to take back control of your online privacy.</p>
+
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Social Media Use by Age Group</title>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+      <h2 style="text-align:center;">Social Media Platform Usage by Age Group (2024)</h2>
+      <canvas id="socialMediaChart" width="800" height="400"></canvas>
+    
+      <script>
+        const data = {
+          labels: ['Facebook', 'Instagram', 'LinkedIn', 'X (Twitter)', 'Pinterest', 'Snapchat', 'YouTube', 'WhatsApp', 'Reddit', 'TikTok', 'BeReal'],
+          datasets: [
+            {
+              label: 'Ages 18-29',
+              data: [68, 76, 40, 38, 43, 65, 93, 30, 46, 59, 10],
+              backgroundColor: 'rgba(255, 99, 132, 0.6)'
+            },
+            {
+              label: 'Ages 30-49',
+              data: [78, 66, 41, 25, 43, 32, 94, 40, 35, 40, 2],
+              backgroundColor: 'rgba(54, 162, 235, 0.6)'
+            },
+            {
+              label: 'Ages 50-64',
+              data: [70, 36, 30, 15, 33, 14, 86, 28, 11, 26, 1],
+              backgroundColor: 'rgba(255, 206, 86, 0.6)'
+            },
+            {
+              label: 'Ages 65+',
+              data: [59, 19, 15, 8, 22, 4, 65, 18, 4, 10, 0.5],
+              backgroundColor: 'rgba(75, 192, 192, 0.6)'
+            }
+          ]
+        };
+    
+        const config = {
+          type: 'bar',
+          data: data,
+          options: {
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Percentage of U.S. Adults Using Each Platform by Age Group'
+              },
+              tooltip: {
+                mode: 'index',
+                intersect: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 100,
+                title: {
+                  display: true,
+                  text: 'Percentage (%)'
+                }
+              }
+            }
+          },
+        };
+    
+        new Chart(
+          document.getElementById('socialMediaChart'),
+          config
+        );
+      </script>
+    </body>
   </section>
 
-  <section id="teens">
-    <h2>Why Teens Are Targeted</h2>
-    <p>Teens over 13 are not protected under COPPA and are a goldmine for advertisers due to their high engagement.</p>
-    <div>
-      <label>Are you under 18? </label>
-      <input type="checkbox" id="ageCheck" onclick="showAdvice()" />
-      <p id="advice" class="hidden">Use extra caution with what you share! You're more vulnerable to targeting.</p>
-    </div>
+  <section id="datause" class="tab-section">
+    <h2>Where is Your Data Going?</h2>
+    <p>Once teens start using social media, their personal information is on full display. This means it has become vulnerable to misuse by the social media company, or even other users. One key concern is data harvesting, which describes the large-scale collection of personal data by companies or third party users. These companies and users can use your information to send targeted ads in your direction. Users think they are getting a fun tool to communicate with friends, but they are also providing information
+      that can be used by the government, advertising agencies, market research companies and Facebook itself [1].</p>
+
+      <img
+    src="https://images.axios.com/TfiTOEli_XpWHq6n5sLPgLKm__U=/2022/05/25/1653509190687.png"
+    alt="Game Ad"
+    id="mainAd"
+    style="cursor: pointer; width: 200px; height: auto; float: right; margin-left: 20px;"
+  />
+
+  <!-- Popup Ads Floating Right of Screen -->
+  <div id="moreAds" style="display: none; position: fixed; top: 200px; right: 20px; z-index: 1000;">
+    <img
+      src="https://www.blog.udonis.co/static/7129b69c7ff7402a74fe4187e3c44b39/0ccb9/top-playable-ads.png"
+      alt="Ad 1"
+      style="display: block; margin-bottom: 10px; width: 200px;"
+    />
+    <img
+      src="https://via.placeholder.com/250x125?text=Ad+2"
+      alt="Ad 2"
+      style="display: block; margin-bottom: 10px; width: 200px;"
+    />
+    <img
+      src="https://via.placeholder.com/250x125?text=Ad+3"
+      alt="Ad 3"
+      style="display: block; width: 200px;"
+    />
+  </div>
   </section>
 
-  <section id="consequences">
-    <h2>Real Consequences</h2>
+  <script>
+    const mainAd = document.getElementById("mainAd");
+    const moreAds = document.getElementById("moreAds");
+
+    mainAd.addEventListener("click", () => {
+      moreAds.style.display = "block";
+    });
+  </script>
+
+  <section id="profit" class="tab-section">
+    <h2>Capitalistic Gain</h2>
+    <p>Facebook is one example of a site that has been discovered to generate profit by turning user activity and personal data into advertising revenue. Companies collect vast amounts of user information, often through privacy policies that are intentionally vague or hard to understand, making it unlikely that users truly know what they’re agreeing to. This data is sold to advertisers, allowing companies to target individuals with precision. Users essentially are becoming unpaid laborers contributing to corporate profits by providing data, content, and engagement [1]. The next time you use social media to seek travel advice, pay attention to how often you encounter recommendations for travel agencies or local excursions related to the destinations you were exploring.</p>
+  </section>
+
+  <section id="harm" class="tab-section">
+    <h2>Harm: Doxxing & Exploitation</h2>
+    <p>Capitalistic gain is not the only thing sites such as Facebook and Instagram are looking for. Personal information shared on social media can also reveal details such as age, gender, location, photos, and interests [5]. In some online communities, individuals weaponize personal data to intimidate or silence others. This practice, known as doxxing, involves publishing private information to shame, harass, or discredit someone [6]. For teens and vulnerable users, the impact of this exposure can be severe, threatening both emotional well-being and personal safety.</p>
+  </section>
+
+  <section id="solutions" class="tab-section">
+    <h2>How to Protect Your Privacy</h2>
     <ul>
-      <li>College applications see your digital footprint.</li>
-      <li>Hackers can use shared info for doxxing.</li>
-      <li>Targeted ads can influence your mental health.</li>
+      <li>
+        <strong>Data Education:</strong> Teens especially need to be taught early on to manage their digital presence. Schools and libraries should offer programs that teach students how to read privacy policies, use privacy settings effectively, and recognize suspicious links or phishing attempts. These programs should be integrated into digital literacy curriculums and updated regularly to reflect the rapidly evolving tech landscape [2]. At UNC we see these attacks regularly through spam emails coming from sources outside of the organization.
+      </li>
+      <li>
+        <strong>Research Guidelines:</strong> Beyond individual users, institutions also play a key role in protecting personal data. Researchers and social media legal teams must develop clear guidelines for handling networked data that contains personally identifiable information (addresses, security questions, birthdays, etc.). As more research involves social media platforms and online behaviors, it's essential to have shared ethical standards and transparent procedures for data collection, consent, and storage [4].
+      </li>
+      <li>
+        <strong>Ad-Blockers/Further Technology Development:</strong> Developers and engineers can help shift the balance from harm to good by creating apps and browser extensions that limit tracking or alert users when their data is being collected. One example could be a browser plugin that flags when a site is sharing your location or a “privacy score” tool that rates apps before you download them. This would be a lot easier for teens to comprehend than having to read the fine print in platform terms and conditions.
+      </li>
     </ul>
   </section>
 
-  <section id="protect">
-    <h2>5 Ways to Protect Yourself</h2>
-    <ol>
-      <li>Review privacy settings on every app.</li>
-      <li>Don't share real-time location.</li>
-      <li>Think before you post.</li>
-      <li>Use encrypted messaging.</li>
-      <li>Don’t click suspicious links.</li>
-    </ol>
+  <section id="survey" class="tab-section">
+    <style>
+      #survey {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f2f5f7;
+        padding: 2em;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 2em auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+  
+      #survey h2 {
+        text-align: center;
+        color: #1a1a1a;
+        font-size: 2em;
+        margin-bottom: 1em;
+        font-weight: 600;
+      }
+  
+      #survey label {
+        display: block;
+        font-size: 1.1em;
+        margin-top: 1.5em;
+        color: #333;
+      }
+  
+      #survey select {
+        width: 100%;
+        padding: 0.7em;
+        font-size: 1em;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 0.5em;
+        background-color: #fff;
+      }
+  
+      #survey select:focus {
+        border-color: #007acc;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 122, 204, 0.3);
+      }
+  
+      #survey input[type="submit"] {
+        margin-top: 2em;
+        width: 100%;
+        background-color: #007acc;
+        color: white;
+        font-size: 1.1em;
+        padding: 0.8em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  
+      #survey input[type="submit"]:hover {
+        background-color: #005fa3;
+      }
+    </style>
+  
+    <h2>Interactive Privacy Survey</h2>
+    <form>
+      <label for="q1">Do you use social media?</label>
+      <select id="q1" name="q1">
+        <option value="">Select...</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+  
+      <label for="q2">How often do you read the terms and conditions?</label>
+      <select id="q2" name="q2">
+        <option value="">Select...</option>
+        <option value="never">Never</option>
+        <option value="rarely">Rarely</option>
+        <option value="sometimes">Sometimes</option>
+        <option value="always">Always</option>
+      </select>
+  
+      <label for="q3">Have you seen ads related to things you've googled or talked about?</label>
+      <select id="q3" name="q3">
+        <option value="">Select...</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+  
+      <label for="q4">Average daily social media use:</label>
+      <select id="q4" name="q4">
+        <option value="">Select...</option>
+        <option value="less1">Less than 1 hour</option>
+        <option value="1-3">1–3 hours</option>
+        <option value="3-6">3–6 hours</option>
+        <option value="6+">More than 6 hours</option>
+      </select>
+  
+      <input type="submit" value="Submit" />
+    </form>
   </section>
 
-  <section id="news">
-    <h2>Privacy News</h2>
-    <p>Check out <a href="https://www.privacynotincluded.org/" target="_blank">Privacy Not Included</a> for up-to-date surveillance news and product safety ratings.</p>
-  </section>
+  <script>
+    const tabs = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('.tab-section');
 
-  <footer>
-    <p>Created by Margot, Sanyukta, and Pascale | Ethics in Technology 2025</p>
-  </footer>
+    tabs.forEach(tab => {
+      tab.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = tab.getAttribute('data-tab');
 
-  <script src="script.js"></script>
+        // Hide all sections
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        // Show selected
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+
+    // Show first section by default
+    document.querySelector('.tab-section').classList.add('active');
+  </script>
 </body>
 </html>
