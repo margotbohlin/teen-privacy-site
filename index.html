@@ -10,7 +10,7 @@
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f9f9f9;
+    background-color: #7BAFD4;
     color: #333;
   }
   
@@ -249,7 +249,7 @@
 
   <section id="audience" class="tab-section">
     <h2>Who Is Our Audience?</h2>
-    <p>Teenagers today are among the most active social media users, often engaging with platforms that encourage frequent sharing of personal details. This openness is influenced not only by the features of emerging apps but also by shifting cultural norms around visibility and self-expression online. As teens adopt new technologies, they tend to share more without fully understanding the long-term implications of their digital footprints [3]. Many privacy laws don't fully protect users over the age of 13, and because teens are so active online, advertisers and tech companies see them as prime targets. Our goal is to raise awareness, explain the risks, and share a few ways to take back control of your online privacy.</p>
+    <p>Teenagers today are among the most active social media users, often engaging with platforms that encourage frequent sharing of personal details. This openness is influenced not only by the features of emerging apps but also by shifting cultural norms around visibility and self-expression online. As teens adopt new technologies, they tend to share more without fully understanding the long-term implications of their digital footprints <a href = https://www.pewresearch.org/internet/2013/05/21/teens-social-media-and-privacy>[3]</a>. Many privacy laws don't fully protect users over the age of 13, and because teens are so active online, advertisers and tech companies see them as prime targets. Our goal is to raise awareness, explain the risks, and share a few ways to take back control of your online privacy.</p>
 
     <head>
       <meta charset="UTF-8" />
@@ -326,54 +326,76 @@
 
   <section id="datause" class="tab-section">
     <h2>Where is Your Data Going?</h2>
-    <p>Once teens start using social media, their personal information is on full display. This means it has become vulnerable to misuse by the social media company, or even other users. One key concern is data harvesting, which describes the large-scale collection of personal data by companies or third party users. These companies and users can use your information to send targeted ads in your direction. Users think they are getting a fun tool to communicate with friends, but they are also providing information
-      that can be used by the government, advertising agencies, market research companies and Facebook itself [1].</p>
-
-      <img
-    src="/api/placeholder/200/150"
-    alt="Game Ad"
-    id="mainAd"
-    style="cursor: pointer; width: 200px; height: auto; float: right; margin-left: 20px;"
-  />
-
-  <!-- Popup Ads Floating Right of Screen -->
-  <div id="moreAds" style="display: none; position: fixed; top: 200px; right: 20px; z-index: 1000;">
+    <p>
+      Once teens start using social media, their personal information is on full display. Every like, comment, photo upload, and search contributes to a growing digital profile. This data becomes vulnerable to misuse not only by the platform itself but also by third-party advertisers. One key concern is data harvesting, which can be described as the large-scale collection and analysis of user information, often without explicit consent. This can include personal details like age, location, interests, habits, device info, and browsing history. These profiles are then used to build sophisticated targeting algorithms, allowing companies to tailor ads that are eerily specific, sometimes manipulating user behavior or emotions. Teens, in particular, may not realize that what feels like a harmless or entertaining experience is actually feeding an invisible surveillance infrastructure. Their data can be used not just for selling products, but also for influencing political views, shaping online experiences, and feeding into broader databases accessed by the government, advertising agencies, market research firms, and of course, the social media platform itself, such as Facebook
+      <a href="https://www.researchgate.net/publication/290576076_Facebook_as_a_Surveillance_Tool_From_the_Perspective_of_the_User">[1]</a>.
+    </p>
+    
     <img
-      src="/api/placeholder/200/150"
-      alt="Ad 1"
-      style="display: block; margin-bottom: 10px; width: 200px;"
+      src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6c/7d/56/6c7d567e-acb0-ba2c-845c-14c07c00af48/64ea1eb9-2fc4-482a-87f7-848e56b353e7_05_TRT01112_FullGrid.Board.WaveCTA_VER_v2_2048_2732_LNG_EN.png/643x0w.jpg"
+      alt="Game Ad"
+      id="mainAd"
+      style="cursor: pointer; width: 200px; height: auto; float: right; margin-left: 20px;"
     />
-    <img
-      src="/api/placeholder/200/150"
-      alt="Ad 2"
-      style="display: block; margin-bottom: 10px; width: 200px;"
-    />
-    <img
-      src="/api/placeholder/200/150"
-      alt="Ad 3"
-      style="display: block; width: 200px;"
-    />
-  </div>
+    <!-- Pointer Text -->
+    <div id="adTextPrompt" style="float: right; clear: right; width: 200px; margin-left: 20px; font-style: italic; font-size: 14px; color: #000000; text-align: center;">
+      ⬆️ Click here for an <strong>(overexaggerated)</strong> demo of what data surveillance can do to your online roaming
+    </div>
+  
+    <!-- Clear Ads Button -->
+    <button id="clearAdsBtn" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 2000; padding: 10px 15px; background: red; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Clear Ads
+    </button>
+  
+    <!-- Container for Random Ads -->
+    <div id="adContainer" style="position: relative; z-index: 1000;"></div>
+  
+    <script>
+      const mainAd = document.getElementById("mainAd");
+      const adContainer = document.getElementById("adContainer");
+      const clearAdsBtn = document.getElementById("clearAdsBtn");
+  
+      mainAd.addEventListener("click", function () {
+        // Clear existing ads before adding new ones
+        adContainer.innerHTML = "";
+  
+        for (let i = 0; i < 100; i++) {
+          const ad = document.createElement("img");
+          ad.src = "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6c/7d/56/6c7d567e-acb0-ba2c-845c-14c07c00af48/64ea1eb9-2fc4-482a-87f7-848e56b353e7_05_TRT01112_FullGrid.Board.WaveCTA_VER_v2_2048_2732_LNG_EN.png/643x0w.jpg" + (i + 1);
+          ad.alt = "Game Ad " + (i + 1);
+          ad.style.position = "fixed";
+          ad.style.width = "150px";
+          ad.style.zIndex = "1000";
+          ad.style.cursor = "pointer";
+  
+          const x = Math.floor(Math.random() * (window.innerWidth - 160));
+          const y = Math.floor(Math.random() * (window.innerHeight - 160));
+          ad.style.left = x + "px";
+          ad.style.top = y + "px";
+  
+          adContainer.appendChild(ad);
+        }
+  
+        // Show the clear button
+        clearAdsBtn.style.display = "block";
+      });
+  
+      clearAdsBtn.addEventListener("click", function () {
+        adContainer.innerHTML = ""; // Remove all ads
+        clearAdsBtn.style.display = "none"; // Hide button again
+      });
+    </script>
   </section>
 
-  <script>
-    const mainAd = document.getElementById("mainAd");
-    const moreAds = document.getElementById("moreAds");
-
-    mainAd.addEventListener("click", () => {
-      moreAds.style.display = "block";
-    });
-  </script>
 
 <section id="profit" class="tab-section">
   <h2>Capitalistic Gain</h2>
   
-  <p>Facebook is one example of a site that has been discovered to generate profit by turning user activity and personal data into advertising revenue. Companies collect vast amounts of user information, often through privacy policies that are intentionally vague or hard to understand, making it unlikely that users truly know what they're agreeing to. This data is sold to advertisers, allowing companies to target individuals with precision. Users essentially are becoming unpaid laborers contributing to corporate profits by providing data, content, and engagement [1]. The next time you use social media to seek travel advice, pay attention to how often you encounter recommendations for travel agencies or local excursions related to the destinations you were exploring.</p>
+  <p>Facebook is a great example of a platform that has turned user activity and personal data into a powerful engine for advertising revenue. Every interaction is tracked and analyzed, not just to improve the user experience, but to maximize profit through hyper-targeted ads. Companies like Facebook collect vast amounts of user information, often under the guise of improving services, using privacy policies and terms of service that are intentionally dense, vague, or long-winded. These documents are written in a way that makes it unlikely the average user, especially a teenager, fully understands what they’re consenting to. As a result, people routinely agree to surveillance they don’t understand. Users essentially are becoming unpaid laborers contributing to corporate profits by providing data, content, and engagement <a href = https://www.researchgate.net/publication/290576076_Facebook_as_a_Surveillance_Tool_From_the_Perspective_of_the_User>[1]</a>. The next time you use social media to seek travel advice or explore a destination, pay close attention to how quickly you're shown ads for airlines, local tours, or travel insurance. This likely is not coincidence, it is a demonstration of surveillance capitalism in action.</p>
   <title>Capitalistic Gain Matching Quiz</title>
   
 
-
-  <h3>Capitalism and Greed - Match the Terms to Their Definitions</h3>
+  <h3>Match the Terms to Their Definitions</h3>
 
   <form id="matchQuiz">
     <div class="match-row">
@@ -443,7 +465,7 @@
 
   <section id="harm" class="tab-section">
     <h2>Harm: Doxxing & Exploitation</h2>
-    <p>Capitalistic gain is not the only thing sites such as Facebook and Instagram are looking for. Personal information shared on social media can also reveal details such as age, gender, location, photos, and interests [5]. In some online communities, individuals weaponize personal data to intimidate or silence others. This practice, known as doxxing, involves publishing private information to shame, harass, or discredit someone [6]. For teens and vulnerable users, the impact of this exposure can be severe, threatening both emotional well-being and personal safety.</p>
+    <p>Monetary gain is not the only objective for social media platforms. Beyond targeted advertising and corporate profit, these platforms facilitate the vast circulation of personal information, muchof which users share without fully considering the consequences. Details such as age, gender, location, photos, and interests may seem harmless in isolation, but when combined, they form a comprehensive digital footprint that can be exploited in unexpected and dangerous ways <a href = https://doi.org/10.1016/j.chb.2014.01.009 >[5]</a>. In some online communities, this personal data becomes a weapon. Doxxing is the act of publicly revealing private or identifying information about someone, and has become an increasingly common tactic used to intimidate, harass, or silence individuals <a href = https://www.emerald.com/insight/content/doi/10.1108/978-1-83982-848-520211015/full/html>[6]</a>. This can include anything from publishing a home address to leaking private messages or photos, often with malicious intent. While anyone can be a target, teens and other vulnerable groups are especially at risk, as they may be less equipped to recognize red flags or respond effectively when their privacy is breached.</p>
     <div style="background:#fff8f0; padding: 20px; margin-top: 30px; border: 2px solid #e0b089; border-radius: 8px;">
       <h3>Quick Check: What would you do?</h3>
       <p>You see someone posting another user's home address on Instagram. What should you do?</p>
@@ -487,10 +509,10 @@
     <h2>How to Protect Your Privacy</h2>
     <ul>
       <li>
-        <strong>Data Education:</strong> Teens especially need to be taught early on to manage their digital presence. Schools and libraries should offer programs that teach students how to read privacy policies, use privacy settings effectively, and recognize suspicious links or phishing attempts. These programs should be integrated into digital literacy curriculums and updated regularly to reflect the rapidly evolving tech landscape [2]. At UNC we see these attacks regularly through spam emails coming from sources outside of the organization.
+        <strong>Data Education:</strong> Teens especially need to be taught early on to manage their digital presence. Schools and libraries should offer programs that teach students how to read privacy policies, use privacy settings effectively, and recognize suspicious links or phishing attempts. These programs should be integrated into digital literacy curriculums and updated regularly to reflect the rapidly evolving tech landscape <a href = https://pmc.ncbi.nlm.nih.gov/articles/PMC10008070>[2]</a>. At UNC we see these attacks regularly through spam emails coming from sources outside of the organization.
       </li>
       <li>
-        <strong>Research Guidelines:</strong> Beyond individual users, institutions also play a key role in protecting personal data. Researchers and social media legal teams must develop clear guidelines for handling networked data that contains personally identifiable information (addresses, security questions, birthdays, etc.). As more research involves social media platforms and online behaviors, it's essential to have shared ethical standards and transparent procedures for data collection, consent, and storage [4].
+        <strong>Research Guidelines:</strong> Beyond individual users, institutions also play a key role in protecting personal data. Researchers and social media legal teams must develop clear guidelines for handling networked data that contains personally identifiable information (addresses, security questions, birthdays, etc.). As more research involves social media platforms and online behaviors, it's essential to have shared ethical standards and transparent procedures for data collection, consent, and storage <a href = https://www.researchgate.net/publication/269589758_What_Your_Tweets_Tell_Us_About_You_Identity_Ownership_and_Privacy_of_Twitter_Data>[4]</a>.
       </li>
       <li>
         <strong>Ad-Blockers/Further Technology Development:</strong> Developers and engineers can help shift the balance from harm to good by creating apps and browser extensions that limit tracking or alert users when their data is being collected. One example could be a browser plugin that flags when a site is sharing your location or a "privacy score" tool that rates apps before you download them. This would be a lot easier for teens to comprehend than having to read the fine print in platform terms and conditions.
@@ -690,8 +712,9 @@
       }
     </style>
   
+  <section id="survey">
     <h2>Interactive Privacy Survey</h2>
-    <form>
+    <form id="privacySurvey">
       <label for="q1">Do you use social media?</label>
       <select id="q1" name="q1">
         <option value="">Select...</option>
@@ -727,6 +750,122 @@
       <input type="submit" value="Submit" />
     </form>
   </section>
+  
+  <!-- ✅ Thank You Section (MOVED OUTSIDE the <form>) -->
+  <div id="thankYou" style="display: none; text-align: center; padding: 2em;">
+    <h2>Thank you for your submission!</h2>
+    <canvas id="chart1" width="300" height="300"></canvas>
+    <canvas id="chart2" width="300" height="300"></canvas>
+    <canvas id="chart3" width="300" height="300"></canvas>
+    <canvas id="chart4" width="300" height="300"></canvas>
+  </div>
+  
+
+  <!-- Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  // Track survey data in localStorage
+  const surveyData = JSON.parse(localStorage.getItem("surveyResults")) || {
+    q1: { yes: 0, no: 0 },
+    q2: { never: 0, rarely: 0, sometimes: 0, always: 0 },
+    q3: { yes: 0, no: 0 },
+    q4: { less1: 0, "1-3": 0, "3-6": 0, "6+": 0 },
+  };
+
+  const form = document.querySelector("form");
+  const surveySection = document.getElementById("survey");
+  const thankYou = document.getElementById("thankYou");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const q1 = document.getElementById("q1").value;
+    const q2 = document.getElementById("q2").value;
+    const q3 = document.getElementById("q3").value;
+    const q4 = document.getElementById("q4").value;
+
+    if (!q1 || !q2 || !q3 || !q4) return alert("Please answer all questions.");
+
+    surveyData.q1[q1]++;
+    surveyData.q2[q2]++;
+    surveyData.q3[q3]++;
+    surveyData.q4[q4]++;
+
+    localStorage.setItem("surveyResults", JSON.stringify(surveyData));
+
+    // Hide form, show chart
+    surveySection.style.display = "none";
+    thankYou.style.display = "block";
+
+    renderCharts();
+  });
+
+  function renderCharts() {
+    const ctx1 = document.getElementById("chart1").getContext("2d");
+    const ctx2 = document.getElementById("chart2").getContext("2d");
+    const ctx3 = document.getElementById("chart3").getContext("2d");
+    const ctx4 = document.getElementById("chart4").getContext("2d");
+
+    new Chart(ctx1, {
+      type: "pie",
+      data: {
+        labels: ["Yes", "No"],
+        datasets: [{
+          label: "Do you use social media?",
+          data: [surveyData.q1.yes, surveyData.q1.no],
+          backgroundColor: ["#36A2EB", "#FF6384"]
+        }]
+      }
+    });
+
+    new Chart(ctx2, {
+      type: "pie",
+      data: {
+        labels: ["Never", "Rarely", "Sometimes", "Always"],
+        datasets: [{
+          label: "Read Terms & Conditions",
+          data: [
+            surveyData.q2.never,
+            surveyData.q2.rarely,
+            surveyData.q2.sometimes,
+            surveyData.q2.always
+          ],
+          backgroundColor: ["#FFCE56", "#36A2EB", "#9966FF", "#4BC0C0"]
+        }]
+      }
+    });
+
+    new Chart(ctx3, {
+      type: "pie",
+      data: {
+        labels: ["Yes", "No"],
+        datasets: [{
+          label: "Have you seen related ads?",
+          data: [surveyData.q3.yes, surveyData.q3.no],
+          backgroundColor: ["#FF9F40", "#FF6384"]
+        }]
+      }
+    });
+
+    new Chart(ctx4, {
+      type: "pie",
+      data: {
+        labels: ["<1 hr", "1–3 hrs", "3–6 hrs", "6+ hrs"],
+        datasets: [{
+          label: "Daily Use",
+          data: [
+            surveyData.q4.less1,
+            surveyData.q4["1-3"],
+            surveyData.q4["3-6"],
+            surveyData.q4["6+"]
+          ],
+          backgroundColor: ["#8BC34A", "#03A9F4", "#FF9800", "#E91E63"]
+        }]
+      }
+    });
+  }
+</script>
 
   <script>
     const tabs = document.querySelectorAll('nav a');
