@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f9f9f9;
+    background-color: #0004eb;
     color: #333;
   }
   
@@ -69,4 +69,5 @@ body {
   .tab-section.active {
     display: block;
   }
+  
   
