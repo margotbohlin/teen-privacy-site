@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -8,10 +8,14 @@ body {
   }
   
   header {
-    background-color: #3b3b98;
-    color: white;
-    padding: 1rem;
-    text-align: center;
+      background-image: url('https://www.eff.org/files/banner_library/social-media-surveillance-1b_0.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: rgb(255, 255, 255);
+      font-size: 30px;
+      padding: 6rem;
+      text-align: center;
   }
   
   nav ul {
@@ -19,6 +23,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 0;
+    font-size: 20px;
   }
   
   nav li {
@@ -44,5 +49,24 @@ body {
   
   .hidden {
     display: none;
+  }
+  
+  section {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 20px;
+  }
+  
+  section p, section h2, section ul, section div {
+    text-align: center;
+  }
+  
+  .tab-section {
+    display: none;
+  }
+  
+  .tab-section.active {
+    display: block;
   }
   
